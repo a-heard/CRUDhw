@@ -4,25 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class User {
-     
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-     
+    private Long id;
+
     @NotBlank(message = "Name is mandatory")
     private String name;
-     
+
     @NotBlank(message = "Email is mandatory")
     private String email;
- 
-    // standard constructors / setters / getters / toString
 
     public User() {
-        
+
     }
 
     public User(String name, String email) {
@@ -45,21 +43,18 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    public long getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-	@Override
-	public String toString() {
-		return "User [email=" + email + ", name=" + name + "]";
-	}
-
-    
-    
-
+    @Override
+    public String toString() {
+        return "User [email=" + email + ", id=" + id + ", name=" + name + "]";
+    }
 
 }
